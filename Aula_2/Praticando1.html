@@ -31,13 +31,15 @@
             <div class="row g-3">
                 <div class="col-sm-2">
                     <label for="phone">Telefone:</label><br>
-                    <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                        placeholder="(XX) XXXX-XXXX" class="form-control" required><br>
+                    <input type="tel" name="phone" id="phone" pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}"
+                        placeholder="(XX) XXXX-XXXX" class="form-control"
+                        title="Digite o telefone no formato: (DD)XXXX-XXXX"><br>
                 </div>
 
                 <div class="col-sm-3">
                     <label for="email">Email:</label><br>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Digite seu email...">
+                    <input type="email" name="email" id="email" title="Digite o email no formato: user@email.com"
+                        class="form-control" placeholder="Digite seu email...">
                 </div>
             </div>
 
@@ -45,7 +47,8 @@
                 <div class="col-sm-2">
                     <label for="quantity">CPF:</label>
                     <input type="text" name="text" id="quantity" class="form-control" required
-                        placeholder="XXX.XXX.XXX.XX">
+                        placeholder="XXX.XXX.XXX.XX" title="Digite o cpf no formato: XXX.XXX.XXX.XX"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{2}">
                 </div>
 
                 <div class="col-sm-2">
@@ -55,21 +58,21 @@
 
                 <div class="col-sm-2">
                     <label for="quantity">CEP:</label>
-                    <input type="text" name="text" id="quantity" class="form-control" placeholder="XX.XXX.XXX" required>
+                    <input type="text" name="text" id="quantity" class="form-control" placeholder="XX.XXX.XXX"
+                        pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" required>
                 </div>
             </div><br>
 
             <div class="row g-3">
                 <div class="col-sm-4">
                     <label for="Endereço">Endereço:</label>
-                    <input type="text" name="text" id="text" class="form-control" placeholder="Rua, nº e bairro"
-                        required>
+                    <input type="text" name="text" id="text" class="form-control" placeholder="Rua, nº e bairro" required>
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <label for="cidade">Cidade</label>
                     <select name="cidade" id="cidade" class="form-control">
-                        <option selected>[Selecione a cidade]</option>
+                        <option selected>[Selecione a cidade...]</option>
                         <option value="Sao Paulo"> Sao Paulo</option>
                         <option value="Rio De Janeiro">Rio De Janeiro</option>
                         <option value="Brasilia">Brasilia</option>
@@ -109,12 +112,12 @@
 
                 <div class="col-sm-3">
                     <label for="">Contrato assinado em PDF:</label>
-                    <input type="file" name="foto" id="foto" class="form-control" accept="pdf/*">
+                    <input type="file" name="foto" id="foto" class="form-control" accept=".pdf">
                 </div>
             </div><br>
 
             <button class=" btn btn-success" type="submit">Cadastrar</button>
-            <button  class=" btn btn-danger" type="reset">Limpar</button>
+            <button class=" btn btn-danger" type="reset">Limpar</button>
         </div>
     </form>
 
