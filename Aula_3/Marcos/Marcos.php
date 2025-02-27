@@ -11,7 +11,7 @@
 
     <?php
 
-        echo "<p>Hello World 2!</p>";
+        echo "<p>Aula Web 2!</p>";
 
     ?>
     

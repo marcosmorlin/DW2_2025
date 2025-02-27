@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <h1>Primeira Página PHP</h1>
+    <h1>Primeira Página PHP 3</h1>
 
     <?php
 
@@ -25,7 +25,9 @@
     <hr>
     <br>
 
-    <a href="http://localhost/aula3Web2/Marcos.php">Marcos</a>
+    <a href="Marcos/">
+        Marcos
+    </a>
 
 </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario 2</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    
+    <br>
+    <h1>Formulario 2</h1>
+    <hr>
+
+    <br>
+
+    <form class="row g-3" action="destino2.php" method="POST">
+        <div class="col-sm-4">
+            <label for="titulo">Titulo da página</label>
+            <input type="text" id="titulo" name="titulo" class="form-control" required autofocus><br>
+            
+            <label for="corpo">Corpo:</label>
+            <textarea name="corpo" id="corpo" rows="2" cols="30" class="form-control"></textarea><br>
+
+            <label for="corTexto">Cor do Texto:</label>
+            <input type="color" name="corTexto" id="corTexto" class="form-control" required><br>
+
+            <label for="urlImagem">URL de Uma imagem:</label>
+            <input type="url" name="urlImagem" id="urlImagem" class="form-control" required><br>
+            
+            <label for="urlLink">URL de um Link:</label>
+            <input type="url" name="urlLink" id="urlLink" class="form-control" required><br>
+
+            <label for="corFundo">Cor de fundo da Página:</label>
+            <input type="color" name="corFundo" id="corFundo" class="form-control" required><br>
+
+            <button type="submit" class="btn btn-success">Enviar</button>
+            <button type="reset" class="btn btn-danger">Limpar</button>
+        </div>
+    </form>
+</body>
+</html>
