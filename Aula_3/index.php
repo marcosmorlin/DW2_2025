@@ -1,6 +1,6 @@
 
 <?php
 
-    header("location: hello2.php");
+    header("location: Formulario2.html");
 
 ?>

@@ -22,8 +22,8 @@
     <style>
 
         body{
-            background-color: <?php echo $corFundo; ?>;
-            color: <?php echo $corTexto; ?>;
+            background-color: <?php echo $corFundo; ?>; /*Cor de fundo da pagina*/ 
+            color: <?php echo $corTexto; ?>; /*Cor do texto  */
         }
 
     </style>

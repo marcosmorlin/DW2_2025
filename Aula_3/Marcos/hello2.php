@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeira Página PHP</title>
+</head>
+<body>
+
+    <h1>Primeira Página PHP</h1>
+
+    <?php
+
+        echo "<p>Hello World 2!</p>";
+        date_default_timezone_set('America/Sao_Paulo');
+
+        $nome = "Marcos";
+        $data = date ("d/m/Y");
+        $hora = date("h:i");
+
+        echo "Ola, meu nome é <b>$nome</b>, hoje é dia <b>$data</b>, e agora são <b>$hora</b>.";
+
+    ?>
+    
+    <hr>
+    <br>
+
+    <a href="http://localhost/aula3Web2/Marcos/Marcos.php">
+        Marcos
+    </a>
+
+</body>
+</html>
