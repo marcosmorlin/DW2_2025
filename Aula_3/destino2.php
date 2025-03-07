@@ -7,6 +7,12 @@
 </head>
 
 <body>
+
+    <p>
+        <a href="Formulario2.html">
+            Voltar Ao formulario
+        </a>
+    </p>
     
     <?php
 
