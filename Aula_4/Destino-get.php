@@ -8,6 +8,13 @@
 </head>
 
 <body>
+
+    <p>
+        <a href="/dw2_2025/Aula_4">
+            Voltar ao Index
+        </a>
+    </p>
+
     <h1>Destino GET</h1>
     <hr>
 
@@ -22,13 +29,13 @@
 
     <p>
         <?php
-            echo "Nome Informado: $nome";
+        echo "Nome Informado: $nome";
         ?>
     </p>
 
     <p>
         <?php
-            echo "E-mail: $email";
+        echo "E-mail: $email";
         ?>
     </p>
     <br>
@@ -51,7 +58,7 @@
         </a>
     </p>
 
-    <div class="col g-3" style="display: flex; gap: 10px;" >
+    <div class="col g-3" style="display: flex; gap: 10px;">
 
         <p>
             <a href="Destino-get.php?cor=red&nome=<?php echo $nome; ?>&email=<?php echo $email ?>">
@@ -76,7 +83,8 @@
 
     <style>
         body {
-            background-color: <?php echo $cor; ?>
+            background-color:
+                <?php echo $cor; ?>
         }
     </style>
 </body>

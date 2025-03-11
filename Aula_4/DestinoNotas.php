@@ -11,7 +11,7 @@
 
     <style>
         body {
-            background-color:rgb(190, 190, 190);
+            background-color:rgb(211, 210, 210);
         }
     </style>
 

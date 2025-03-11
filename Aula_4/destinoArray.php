@@ -12,6 +12,7 @@
     <a href="PraticandoArray.html">
         Voltar à lista
     </a>
+    <br>
 
     <h1>Destino</h1>
     <hr>
@@ -24,29 +25,31 @@
 
     <textarea name="text" id="text" cols="100" rows="10">
         <?php
-        echo "<pre>";
+        
         var_dump($_POST);
-        echo "</pre>";
+        
         ?>
     </textarea><br>
 
     <?php
-    echo "<h2>Interesses Selecionados  (Ordem Alfabética): </h2>";
+        echo "<h2>Interesses Selecionados em Ordem Alfabética: </h2>";
 
-    $interesses = array_values($_POST);
-    sort($interesses);
+    //    $interesses = filter_input_array(INPUT_POST, "interesses" , FILTER_SANITIZE_SPECIAL_CHARS);
+       $interesses = $_POST["interesses"]; 
+       sort($interesses);
 
-    echo "<ul>";
+        echo "<ul>";
+            
+            for($i = 0; $i < min (3, count(value: $interesses)); $i++){
+                echo "<li>$interesses[$i]</li>";
+            }
+
+            if(count($interesses) > 3){
+                echo "<li>...</li>";
+            }
         
-    foreach(array_slice ($interesses, 0, 3) as $interesses){
-        echo "<li>$interesses</li>";
-        if(count($interesses) > 3){
-            echo "<li>...</li>";
-        }
-    }
-    
-    echo "</ul>"
-    
+        echo "</ul>";
+        
     ?>
     
 </body>
