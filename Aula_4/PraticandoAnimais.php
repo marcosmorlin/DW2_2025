@@ -29,8 +29,8 @@ $ultimo = filter_input(INPUT_GET, "ultimo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 ?>
     <p>
-        <a href="/dw2_2025/Aula_4">
-            Voltar ao Index
+        <a href="/dw2_2025/Aula_4/MenuPrincipal.html">
+            Voltar ao Menu
         </a>
     </p>
 
