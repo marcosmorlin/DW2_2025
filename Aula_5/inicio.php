@@ -1,3 +1,7 @@
+<?php
+    require('header.php');
+?>
+        
         <div class="inicio">
             <div class="bg-light p-4 mb-4 rounded">
                 <h1 class="text-center">Página inicial</h1>
@@ -13,3 +17,7 @@
             </p>
 
         </div>
+
+<?php
+    require('footer.php');
+?>
