@@ -1,6 +1,6 @@
 
 <?php
 
-    header("location: Formulario2.html");
+    header("location:MenuPrincipal.html");
 
 ?>
