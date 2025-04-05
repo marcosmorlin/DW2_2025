@@ -1,35 +1,41 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando Animais</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
 
-<style>
-    .container {
-        display: flex;
-        gap: 40px;
-    }
+<body>
 
-    img {
-        width: 240px;
-        height: 200px;
-        align-items: center;
-    }
-</style>
+    <style>
+        .container {
+            display: flex;
+            gap: 40px;
+        }
 
-<?php
+        img {
+            width: 240px;
+            height: 200px;
+            border: 4px solid transparent;
+        }
 
-$gato = filter_input(INPUT_GET, "gato", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$cachorro = filter_input(INPUT_GET, "cachorro", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$leao = filter_input(INPUT_GET, "leao", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$tubarao = filter_input(INPUT_GET, "tubarao", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        .selecionado {
+            border-color: red;
+        }
+    </style>
 
-$animalSelecionado = filter_input(INPUT_GET, "animalSelecionado", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$ultimo = filter_input(INPUT_GET, "ultimo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    <?php
 
+    $animalSelecionado = filter_input(INPUT_GET, "animal", FILTER_SANITIZE_SPECIAL_CHARS);
+    $ultimosClicados = filter_input(INPUT_GET, "ultimos", FILTER_SANITIZE_SPECIAL_CHARS);
 
+    ?>
 
-?>
     <p>
-        <a href="/dw2_2025/Aula_4/MenuPrincipal.html">
+        <a class="btn btn-primary" href="/dw2_2025/Aula_4/MenuPrincipal.html">
             Voltar ao Menu
         </a>
     </p>
@@ -37,49 +43,74 @@ $ultimo = filter_input(INPUT_GET, "ultimo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     <h1>Praticando animais</h1>
     <hr>
 
-    <div class="container">
-        <a href="?bicho=gato.php&img=gato.jpg&ultimos=">
-            <img src="imagens/gato.jpg" alt="gato.jpg"><br>
-        </a>
-
-
     <?php
-        if($animalSelecionado == $gato){
-            ?>
-                <p>Voce clicou no <span>Gato</span></p><br>
 
-                <p>O gato é um mamífero da familia felideos.</p>
-            <?php
-        } elseif($animalSelecionado == $cachorro){
-            ?>
-                <a href="?bicho=cachorro.php&img=cachorro.webp&ultimos=">
-                    <img src="imagens/cachorro.webp" alt="cachorro.webp">
-                </a>
+        if ($animalSelecionado) {
+            if ($ultimosClicados) {
 
-                <p>Voce clicou no <span>cachorro</span></p><br>
+                $ultimosClicados = $ultimosClicados . ", $animalSelecionado";
 
-                <p>O cachorro é um mamífero da familia canideos.</p>
-            <?php
+            } else {
+                $ultimosClicados = $animalSelecionado;
+            }
         }
+
     ?>
-
-        
-
-        
-
-        <a href="?bicho=leao.php&img=leao.webp&ultimos=">
-            <img src="imagens/leao.webp" alt="leao.webp">
+    <div class="container">
+        <a href="?animal=gato&Imagem=gato&ultimos=<?= $ultimosClicados ?>">
+            <img src="imagens/gato.jpg" class="<?= $animalSelecionado == 'gato' ? 'selecionado' : '' ?>" alt="gato">
         </a>
-        <a href="?bicho=tubarao.php&img=tubarao.webp&ultimos=">
-            <img src="imagens/tubarao.webp" alt="tubarao.webp">
+
+        <a href="?animal=cachorro&ultimos=<?= $ultimosClicados ?>">
+            <img src="imagens/cachorro.webp" class="<?= $animalSelecionado == 'cachorro' ? 'selecionado' : '' ?>"
+                alt="cachorro">
+        </a>
+
+        <a href="?animal=leao&ultimos=<?= $ultimosClicados ?> ">
+            <img src="imagens/leao.webp" class="<?= $animalSelecionado == 'leao' ? 'selecionado' : '' ?>" alt="leao">
+        </a>
+
+        <a href="?animal=tubarao&ultimos=<?= $ultimosClicados ?> ">
+            <img src="imagens/tubarao.webp" class="<?= $animalSelecionado == 'tubarao' ? 'selecionado' : '' ?>"
+                alt="tubarao">
         </a>
     </div>
-    <br>
 
     <br>
-    <a href="PraticandoAnimais.php">
+
+    <?php
+
+    if ($animalSelecionado == 'gato') {
+        echo "<p>Você clicou no <strong>Gato</strong>.</p>";
+        echo "<p>O gato é um mamífero da família dos felídeos.</p>";
+    } elseif ($animalSelecionado == 'cachorro') {
+        echo "<p>Você clicou no <strong>Cachorro</strong>.</p>";
+        echo "<p>O cachorro é um mamífero domesticado da família dos canídeos.</p>";
+    } elseif ($animalSelecionado == 'leao') {
+        echo "<p>Você clicou no <strong>Leão</strong>.</p>";
+        echo "<p>O leão é um grande felino conhecido como o rei da selva.</p>";
+    } elseif ($animalSelecionado == 'tubarao') {
+        echo "<p>Você clicou no <strong>Tubarão</strong>.</p>";
+        echo "<p>O tubarão é um peixe cartilaginoso predador dos mares.</p>";
+    }
+    ?>
+    <?php
+
+    echo "<h2>Ultimos clicados</h2>";
+    
+    echo "<ul>";
+    if($ultimosClicados) {
+        
+        echo "<li>$ultimosClicados</li>";
+    } 
+    echo "</ul>";
+
+    ?>
+
+    <a class="btn btn-danger" href="PraticandoAnimais.php">
         Limpar tudo
     </a>
 
-<?php
+</body>
 
+</html>
