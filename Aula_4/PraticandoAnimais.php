@@ -48,7 +48,7 @@
         if ($animalSelecionado) {
             if ($ultimosClicados) {
 
-                $ultimosClicados = $ultimosClicados . ", $animalSelecionado";
+                $ultimosClicados .= "," .$animalSelecionado;
 
             } else {
                 $ultimosClicados = $animalSelecionado;
@@ -66,7 +66,7 @@
                 alt="cachorro">
         </a>
 
-        <a href="?animal=leao&ultimos=<?= $ultimosClicados ?> ">
+        <a href="?animal=leao&ultimos=<?= $ultimosClicados?> ">
             <img src="imagens/leao.webp" class="<?= $animalSelecionado == 'leao' ? 'selecionado' : '' ?>" alt="leao">
         </a>
 
@@ -98,13 +98,16 @@
 
     echo "<h2>Ultimos clicados</h2>";
     
-    echo "<ul>";
-    if($ultimosClicados) {
-        
-        echo "<li>$ultimosClicados</li>";
-    } 
-    echo "</ul>";
+    if($ultimosClicados && $animalSelecionado) {
+        $animal = explode("," , $ultimosClicados);
 
+        echo "<ul>";
+        for($i = 0; $i < count($animal) -1; $i++){
+            echo "<li>$animal[$i]</li>";
+        }
+        echo "</ul>";
+    }
+    
     ?>
 
     <a class="btn btn-danger" href="PraticandoAnimais.php">
