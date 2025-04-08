@@ -1,4 +1,5 @@
 <?php
+$titulo_pagina = "Inicio";
 
 session_start();
 require('header.php');
