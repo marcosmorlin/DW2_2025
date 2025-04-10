@@ -1,0 +1,23 @@
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.caixa {
+    margin: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.verde { background-color: #d2ede1; border: 2px solid green; }
+.azul { background-color: #d2e4ff; border: 2px solid blue; }
+.amarelo { background-color: #fde596; border: 2px solid orange; }
+.vermelho { background-color: #fcdfdf; border: 2px solid rgb(241, 105, 105); }
+.caixa img {
+    max-width: 150px;
+}

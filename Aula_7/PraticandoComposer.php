@@ -7,17 +7,7 @@ require 'vendor/autoload.php';
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praticando Composer</title>
-    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
-</head>
-
-<body>
+<link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
 
     <p>
         <a href="/dw2_2025/Aula_7">
@@ -91,12 +81,13 @@ require 'vendor/autoload.php';
 
     // se a resposta deu erro / !empty
     if (is_array($response) && isset($response['errors']) && !empty($response['errors'])) {
-        echo "<div class='alert alert-danger border border-3 border-danger' role='alert' >";
+        echo "<div class='alert alert-danger border border-3 border-danger' role='alert'>";
         echo "<h2>CEP: " . $cep  . " </h2>";
         echo "<p>Detalhes do erro :</p><ul>";
 
         //pra cada erro, mostrar mensagem
        foreach($response['errors'] as $error){
+        
         //verificar se cada erro tem a msg
         if(isset($error['message'])){
             echo "<li> ". $error['message'] . " </li>";
@@ -108,7 +99,3 @@ require 'vendor/autoload.php';
     }
 
     ?>
-
-</body>
-
-</html>
