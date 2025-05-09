@@ -47,9 +47,11 @@ require 'vendor/autoload.php';
     //verificacao se o servidor responde(se recebeu o pedido) e se (cep) está preenchido
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cep'])) {
 
+        //cep recebe post(Preenchido), dps mostra o cep corrigido 
         $cep = $_POST['cep'];
         $cep = preg_replace('/^(\d{2})(\d{3})(\d{3})$/', '$1.$2.$3', $cep);
 
+        //tenta conectar 
         try {
             $response = CepPromise::fetch($cep);
         } catch (CepPromiseException $e) {
@@ -64,7 +66,7 @@ require 'vendor/autoload.php';
     echo "</pre>";
     */
     
-    //verificar se a reposta tem a cidade e mostrar
+    //verificar se a reposta tem a cidade e mostrar alerta
     if (isset($response->city)) {
         ?>
         <div class="alert alert-success border border-3 border-success" role="alert">
@@ -79,7 +81,7 @@ require 'vendor/autoload.php';
         <?php
     }
 
-    // se a resposta deu erro / !empty
+    // se a resposta deu erro mostrar alerta de erro/ !empty
     if (is_array($response) && isset($response['errors']) && !empty($response['errors'])) {
         echo "<div class='alert alert-danger border border-3 border-danger' role='alert'>";
         echo "<h2>CEP: " . $cep  . " </h2>";

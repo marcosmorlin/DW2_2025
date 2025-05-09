@@ -1,20 +1,47 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['campo']) && isset($_POST['valor'])) {
-    setcookie($_POST['campo'], $_POST['valor'], time() + 3600);
-}
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['campo']) && isset($_POST['valor'])) {
+        setcookie($_POST['campo'], $_POST['valor'], time() + 3600);
+    }
 
 ?>
 
 <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+<title>Praticando AJAX</title>
 
-<a href="/dw2_2025/Aula_6">
-    Voltar ao menu
-</a><br>
-
-<br>
 <h2>Formulario de cadastro</h2>
 <hr><br>
+
+<script>
+
+    function salvar(campo) {
+        const input = document.getElementById(campo);
+        const valor = input.value;
+
+        const xhttp = new XMLHttpRequest(); /*criar obj */
+        xhttp.open("POST", "PraticandoAjax.php", true);       /*abrir requisição (POST)*/ 
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("campo=" + campo + "&valor=" + encodeURIComponent(valor));
+        
+        
+    }
+
+    window.onload = () => {
+        const cookie = document.cookie.split("; "); /*pegar os cookie*/
+        cookie.forEach(element => {                 
+            const [nomeCampo, valor] = element.split("=");
+            const campo = document.getElementById(nomeCampo);
+
+            if (campo){
+                campo.value = decodeURIComponent(valor);
+                campo.classList.add("is-valid");
+                campo.classList.remove("is-invalid");
+            }
+        });
+        
+    }
+
+</script>
 
 <form action="/action_page.php" method="get">
     <img src="imagens/prancheta.png" alt="imagem" class="float-end img-fluid"
@@ -23,7 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['campo']) && isset($_P
         <!--<img src="imagens/prancheta.png" alt="imagem" class="float-end">-->
         <div class="col-sm-6">
             <label for="name">Nome Completo:</label>
-            <input type="text" name="name" id="name" placeholder="Digite seu nome..." oninput="salvar(this.id)" class="form-control" required><br>
+            <input type="text" name="name" id="name" placeholder="Digite seu nome..." oninput="salvar(this.id)"
+                class="form-control " required><br>
         </div>
 
         <div class="row g-3">
@@ -45,7 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['campo']) && isset($_P
             <div class="col-sm-3">
                 <label for="quantity">CPF:</label>
                 <input type="text" name="text" id="cpf" class="form-control" required placeholder="XXX.XXX.XXX.XX"
-                    title="Digite o cpf no formato: XXX.XXX.XXX.XX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{2}" oninput="salvar(this.id)" required>
+                    title="Digite o cpf no formato: XXX.XXX.XXX.XX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{2}"
+                    oninput="salvar(this.id)" required>
             </div>
 
             <div class="col-sm-3">
@@ -55,43 +84,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['campo']) && isset($_P
 
             <div class="col-sm-3">
                 <label for="quantity">CEP:</label>
-                <input type="text" name="text" id="cep" class="form-control" oninput="salvar(this.id)" placeholder="XX.XXX.XXX"
-                    pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" required>
+                <input type="text" name="text" id="cep" class="form-control" oninput="salvar(this.id)"
+                    placeholder="XX.XXX.XXX" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" required>
             </div>
         </div><br>
 
         <button class=" btn btn-success" type="submit">Cadastrar</button>
         <button class=" btn btn-danger" type="reset">Limpar</button>
     </div>
+
+    <a class="btn btn-outline-primary" href="/dw2_2025/Aula_6">
+        Voltar ao menu principal
+    </a><br>
 </form>
-
-
-<script>
-
-    function salvar(campo) {
-        const valor = document.getElementById(campo).value;
-
-        const xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-        xhttp.onload = function(){
-
-            console.log("Salvo", campo);
-        }
-        xhttp.send("campo=" + encodeURIComponent(campo) + "&valor=" + encodeURIComponent(valor));
-    }
-
-    window.onload = =>{
-        const cookie = document.cookie.split("; ");
-        cookie.forEach(element => {
-            const [chave, valor] = element.split("=");
-            const valor = document.getElementById(chave);
-        });
-    }
-
-</script>
-
-<?php
-
-?>
