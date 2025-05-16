@@ -30,6 +30,11 @@
     </svg>
 
     <div class="container">
+        <p>
+            <a class="btn btn-primary" href="/dw2_2025/Aula_11/">
+                Voltar
+            </a>
+        </p>
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <svg class="bi me-2" width="40" height="32">
