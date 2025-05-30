@@ -8,13 +8,13 @@ require('header.php');
 <div class="row">
     <div class="col-4 offset-4">
         <?php
-        if(isset($_SESSION['erro']) && !empty($_SESSION['erro'])){
+        if(isset($_SESSION["erro"]) && !empty($_SESSION["erro"])){
             ?>
                 <div class="alert alert-danger" role="alert">
-                    <?= $_SESSION['erro'] ?>
+                    <?= $_SESSION["erro"] ?>
                 </div>
             <?php
-            unset($_SESSION['erro']);
+            unset($_SESSION["erro"]);
         }
         ?>
     </div>
